@@ -12,7 +12,11 @@
     "typecheck": "pnpm install:shared-sdk && pnpm --filter @sdkwork/assets-pc-* run typecheck",
     "test": "pnpm install:shared-sdk && pnpm --filter @sdkwork/assets-pc-* run test && vitest run --passWithNoTests",
     "verify": "pnpm typecheck && pnpm test && pnpm build",
-    "clean": "node -e \"import('node:fs/promises').then(fs => fs.rm('dist', { recursive: true, force: true }))\""
+    "clean": "node -e \"import('node:fs/promises').then(fs => fs.rm('dist', { recursive: true, force: true }))\"",
+    "build:dev": "node ../../../sdkwork-specs/tools/build-browser-client.mjs --app-root . --environment dev",
+    "build:test": "node ../../../sdkwork-specs/tools/build-browser-client.mjs --app-root . --environment test",
+    "build:staging": "node ../../../sdkwork-specs/tools/build-browser-client.mjs --app-root . --environment staging",
+    "build:prod": "node ../../../sdkwork-specs/tools/build-browser-client.mjs --app-root . --environment prod"
   },
   "dependencies": {
     "@sdkwork/assets-pc-assets": "workspace:*",

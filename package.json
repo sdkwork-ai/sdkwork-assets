@@ -32,7 +32,12 @@
     "api:assembly:materialize": "node ../sdkwork-specs/tools/materialize-api-assembly.mjs --root .",
     "api:assembly:validate": "node ../sdkwork-specs/tools/validate-api-assembly.mjs --root .",
     "sdk:generate": "node tools/assets_sdk_generate.mjs",
-    "sdk:check": "node tools/assets_sdk_generate.mjs --check"
+    "sdk:check": "node tools/assets_sdk_generate.mjs --check",
+    "build:pc:dev": "node ../sdkwork-specs/tools/build-browser-client.mjs --root . --architecture pc --environment dev",
+    "build:pc:test": "node ../sdkwork-specs/tools/build-browser-client.mjs --root . --architecture pc --environment test",
+    "build:pc:staging": "node ../sdkwork-specs/tools/build-browser-client.mjs --root . --architecture pc --environment staging",
+    "build:pc:prod": "node ../sdkwork-specs/tools/build-browser-client.mjs --root . --architecture pc --environment prod",
+    "check:browser-build-scripts": "node ../sdkwork-specs/tools/check-browser-build-scripts.mjs --root ."
   },
   "pnpm": {
     "peerDependencyRules": {
