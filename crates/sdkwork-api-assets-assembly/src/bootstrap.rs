@@ -97,6 +97,16 @@ fn build_route_manifest() -> HttpRouteManifest {
     sdkwork_routes_assets_app_api::gateway_route_manifest()
 }
 
+/// Assets App API route manifest for host gateway composition.
+///
+/// Host gateways that merge the Assets app surface contribution compose this
+/// manifest into their own surface route inventory so the Web Framework honors
+/// the Assets routes' declared authentication and permissions
+/// (API_ASSEMBLY_SPEC §3).
+pub fn app_api_route_manifest() -> HttpRouteManifest {
+    build_route_manifest()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
