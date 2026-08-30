@@ -12,5 +12,7 @@ Profile env files for `specs/topology.spec.json` (`schemaVersion: 5`).
 | cloud.test | `cloud.test.env` |
 | cloud.staging | `cloud.staging.env` |
 | cloud.production | `cloud.production.env` |
+| standalone.demo | `standalone.demo.env` |
+| cloud.demo | `cloud.demo.env` |
 
 Profile ids use `<deploymentProfile>.<environment>` only. Retired `serviceLayout` / `unified-process` / `split-services` tokens are not used.
