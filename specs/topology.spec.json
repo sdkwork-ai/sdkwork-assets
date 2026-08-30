@@ -84,7 +84,8 @@
             "role": "api-standalone-gateway"
           }
         ],
-        "healthSurfaces": []
+        "healthSurfaces": [],
+        "browserDeliveries": []
       },
       "cloud.development": {
         "processes": [],
@@ -117,7 +118,8 @@
             "role": "client"
           }
         ],
-        "healthSurfaces": []
+        "healthSurfaces": [],
+        "browserDeliveries": []
       },
       "standalone.test": {
         "processes": [
@@ -129,7 +131,8 @@
             "role": "api-standalone-gateway"
           }
         ],
-        "healthSurfaces": []
+        "healthSurfaces": [],
+        "browserDeliveries": []
       },
       "standalone.staging": {
         "processes": [
@@ -141,7 +144,8 @@
             "role": "client"
           }
         ],
-        "healthSurfaces": []
+        "healthSurfaces": [],
+        "browserDeliveries": []
       },
       "cloud.test": {
         "processes": [],
@@ -166,7 +170,8 @@
       },
       "standalone.demo": {
         "processes": [],
-        "healthSurfaces": []
+        "healthSurfaces": [],
+        "browserDeliveries": []
       },
       "cloud.demo": {
         "processes": [],

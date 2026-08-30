@@ -1632,8 +1632,9 @@
             "type": "string"
           },
           "sortOrder": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string",
+            "format": "int64",
+            "x-sdkwork-int64-string": true
           }
         }
       },
@@ -1989,8 +1990,9 @@
             "type": "string"
           },
           "sortOrder": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string",
+            "format": "int64",
+            "x-sdkwork-int64-string": true
           }
         }
       },
@@ -2340,10 +2342,11 @@
             "description": "Legacy alias for mimeType."
           },
           "durationMs": {
-            "type": "integer",
+            "type": "string",
             "format": "int64",
             "deprecated": true,
-            "description": "Legacy duration field. Use durationSeconds."
+            "description": "Legacy duration field. Use durationSeconds.",
+            "x-sdkwork-int64-string": true
           },
           "checksumSha256": {
             "type": "string",
