@@ -1,6 +1,6 @@
 {
   "name": "@sdkwork/assets-app-sdk",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "SDKWork Assets App API composed consumer facade.",
   "type": "module",
   "private": false,
@@ -15,7 +15,7 @@
     }
   },
   "dependencies": {
-    "@sdkwork/sdk-common": "catalog:",
+    "@sdkwork/sdk-common": "^1.0.9",
     "@sdkwork/utils": "^0.11.0"
   },
   "scripts": {
@@ -36,5 +36,6 @@
     "generated/server-openapi/LICENSE",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "devDependencies": {}
 }
