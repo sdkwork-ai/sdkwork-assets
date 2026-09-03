@@ -21,6 +21,13 @@ export function getPlatformApiGatewayHttpUrl(): string {
     return topologyUrl;
   }
 
+  // APP_RUNTIME_TOPOLOGY_SPEC section 4.2 / SDK_SPEC section 5.1 step 2:
+  // dev:cloud binds the local platform gateway; domain families are build-only.
+  const localGateway = readAssetsViteEnv('VITE_SDKWORK_LOCAL_PLATFORM_API_GATEWAY_HTTP_URL');
+  if (localGateway) {
+    return localGateway;
+  }
+
   const env = readAssetsViteEnv('VITE_SDKWORK_ASSETS_ENVIRONMENT');
   if (env && TOPOLOGY_ENVIRONMENTS.has(env)) {
     return env === 'production' ? 'https://api.sdkwork.com' : 'https://api-dev.sdkwork.com';
