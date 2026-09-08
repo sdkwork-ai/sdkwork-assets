@@ -1,4 +1,5 @@
 import { readAssetsViteEnv } from '@sdkwork/assets-pc-commons';
+import { resolveBaseUrl } from '@sdkwork/sdk-common';
 
 const TOPOLOGY_ENVIRONMENTS = new Set(['development', 'production']);
 
@@ -30,10 +31,13 @@ export function getPlatformApiGatewayHttpUrl(): string {
 
   const env = readAssetsViteEnv('VITE_SDKWORK_ASSETS_ENVIRONMENT');
   if (env && TOPOLOGY_ENVIRONMENTS.has(env)) {
-    return env === 'production' ? 'https://api.sdkwork.com' : 'https://api-dev.sdkwork.com';
+    return resolveBaseUrl().url;
   }
 
-  return import.meta.env.PROD ? 'https://api.sdkwork.com' : 'http://127.0.0.1:3900';
+  // Resolve the shared SDKWORK_API_BASE_URL through @sdkwork/sdk-common (env +
+  // brand + protocol aware), eliminating the hardcoded api.sdkwork.com and
+  // 127.0.0.1:3900 defaults.
+  return resolveBaseUrl().url;
 }
 
 export function getAssetsDeploymentProfile(): 'standalone' | 'cloud' {
