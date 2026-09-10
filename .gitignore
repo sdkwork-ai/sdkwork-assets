@@ -47,3 +47,13 @@ Thumbs.db
 # Local artifacts and build output (do not commit)
 sdks/**/package-lock.json
 /bin/
+
+# SDK generated/transpiled output (local regeneration product, not committed)
+sdks/**/generated/
+*.js.map
+*.d.ts.map
+# SDK facade transpiled output (build artifacts, not committed)
+sdks/**/*-typescript/src/*.js
+sdks/**/*-typescript/src/*.d.ts
+sdks/**/composed/*.js
+sdks/**/composed/*.d.ts
