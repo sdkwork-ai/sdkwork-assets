@@ -27,6 +27,7 @@ coverage/
 **/.sdkwork/secrets/
 **/.sdkwork/cache/
 **/.sdkwork/tmp/
+**/.sdkwork/manual-backups/
 **/.sdkwork/sdkwork-generator-changes.json
 **/.sdkwork/sdkwork-generator-manifest.json
 **/.sdkwork/sdkwork-generator-report.json
@@ -46,7 +47,6 @@ Thumbs.db
 
 # Local artifacts and build output (do not commit)
 sdks/**/package-lock.json
-/bin/
 
 # SDK generated/transpiled output (local regeneration product, not committed)
 sdks/**/generated/
