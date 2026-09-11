@@ -1,0 +1,269 @@
+import { appApiPath } from './paths';
+export class AssetsAssetRelationsApi {
+    client;
+    constructor(client) {
+        this.client = client;
+    }
+    /** Create an asset relation */
+    async create(assetId, body, requestOptions) {
+        return this.client.request(appApiPath(`/assets/${serializePathParameter(assetId, { name: 'assetId', style: 'simple', explode: false })}/relations`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST', body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
+    }
+    /** Delete an asset relation */
+    async delete(assetId, relationId, requestOptions) {
+        return this.client.request(appApiPath(`/assets/${serializePathParameter(assetId, { name: 'assetId', style: 'simple', explode: false })}/relations/${serializePathParameter(relationId, { name: 'relationId', style: 'simple', explode: false })}`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'DELETE' });
+    }
+}
+export class AssetsAssetCollectionItemsApi {
+    client;
+    constructor(client) {
+        this.client = client;
+    }
+    /** Add an asset to a collection */
+    async create(collectionId, body, requestOptions) {
+        return this.client.request(appApiPath(`/assets/collections/${serializePathParameter(collectionId, { name: 'collectionId', style: 'simple', explode: false })}/items`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST', body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
+    }
+    /** Remove an asset from a collection */
+    async delete(collectionId, itemId, requestOptions) {
+        return this.client.request(appApiPath(`/assets/collections/${serializePathParameter(collectionId, { name: 'collectionId', style: 'simple', explode: false })}/items/${serializePathParameter(itemId, { name: 'itemId', style: 'simple', explode: false })}`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'DELETE' });
+    }
+}
+export class AssetsAssetCollectionsApi {
+    client;
+    constructor(client) {
+        this.client = client;
+    }
+    /** List asset collections */
+    async list(params, requestOptions) {
+        const query = buildQueryString([
+            { name: 'cursor', value: params?.cursor, style: 'form', explode: true, allowReserved: false },
+            { name: 'page_size', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
+        ]);
+        return this.client.request(appendQueryString(appApiPath(`/assets/collections`), query), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET', sdkworkUnwrapKind: 'page' });
+    }
+    /** Create an asset collection */
+    async create(body, requestOptions) {
+        return this.client.request(appApiPath(`/assets/collections`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST', body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
+    }
+}
+export class AssetsApi {
+    client;
+    assetCollections;
+    assetCollectionItems;
+    assetRelations;
+    constructor(client) {
+        this.client = client;
+        this.assetCollections = new AssetsAssetCollectionsApi(client);
+        this.assetCollectionItems = new AssetsAssetCollectionItemsApi(client);
+        this.assetRelations = new AssetsAssetRelationsApi(client);
+    }
+    /** List global assets */
+    async list(params, requestOptions) {
+        const query = buildQueryString([
+            { name: 'cursor', value: params?.cursor, style: 'form', explode: true, allowReserved: false },
+            { name: 'page_size', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
+            { name: 'kind', value: params?.kind, style: 'form', explode: true, allowReserved: false },
+            { name: 'sourceType', value: params?.sourceType, style: 'form', explode: true, allowReserved: false },
+            { name: 'q', value: params?.q, style: 'form', explode: true, allowReserved: false },
+        ]);
+        return this.client.request(appendQueryString(appApiPath(`/assets`), query), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET', sdkworkUnwrapKind: 'page' });
+    }
+    /** Create a global asset metadata record */
+    async create(body, requestOptions) {
+        return this.client.request(appApiPath(`/assets`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST', body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
+    }
+    /** Get a global asset */
+    async retrieve(assetId, requestOptions) {
+        return this.client.request(appApiPath(`/assets/${serializePathParameter(assetId, { name: 'assetId', style: 'simple', explode: false })}`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET', sdkworkUnwrapKind: 'item' });
+    }
+    /** Update a global asset */
+    async update(assetId, body, requestOptions) {
+        return this.client.request(appApiPath(`/assets/${serializePathParameter(assetId, { name: 'assetId', style: 'simple', explode: false })}`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'PATCH', body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
+    }
+    /** Archive a global asset */
+    async archive(assetId, body, requestOptions) {
+        return this.client.request(appApiPath(`/assets/${serializePathParameter(assetId, { name: 'assetId', style: 'simple', explode: false })}/archive`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST', body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
+    }
+    /** Restore an archived global asset */
+    async restore(assetId, body, requestOptions) {
+        return this.client.request(appApiPath(`/assets/${serializePathParameter(assetId, { name: 'assetId', style: 'simple', explode: false })}/restore`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST', body, contentType: 'application/json', sdkworkUnwrapKind: 'item' });
+    }
+}
+export function createAssetsApi(client) {
+    return new AssetsApi(client);
+}
+function appendQueryString(path, rawQueryString) {
+    const query = rawQueryString.replace(/^\?+/, '');
+    if (!query) {
+        return path;
+    }
+    return path.includes('?') ? `${path}&${query}` : `${path}?${query}`;
+}
+function serializePathParameter(value, spec) {
+    if (value === undefined || value === null) {
+        return '';
+    }
+    const style = spec.style || 'simple';
+    if (Array.isArray(value)) {
+        return serializePathArray(spec.name, value, style, spec.explode);
+    }
+    if (typeof value === 'object') {
+        return serializePathObject(spec.name, value, style, spec.explode);
+    }
+    return pathPrefix(spec.name, style, false) + encodePathValue(serializePathPrimitive(value));
+}
+function serializePathArray(name, values, style, explode) {
+    const serialized = values
+        .filter((item) => item !== undefined && item !== null)
+        .map((item) => encodePathValue(serializePathPrimitive(item)));
+    if (serialized.length === 0) {
+        return pathPrefix(name, style, false);
+    }
+    if (style === 'matrix') {
+        return explode
+            ? serialized.map((item) => `;${name}=${item}`).join('')
+            : `;${name}=${serialized.join(',')}`;
+    }
+    return pathPrefix(name, style, false) + serialized.join(explode ? '.' : ',');
+}
+function serializePathObject(name, value, style, explode) {
+    const entries = Object.entries(value).filter(([, entryValue]) => entryValue !== undefined && entryValue !== null);
+    if (entries.length === 0) {
+        return pathPrefix(name, style, true);
+    }
+    if (style === 'matrix') {
+        return explode
+            ? entries.map(([key, entryValue]) => `;${encodePathValue(key)}=${encodePathValue(serializePathPrimitive(entryValue))}`).join('')
+            : `;${name}=${entries.flatMap(([key, entryValue]) => [encodePathValue(key), encodePathValue(serializePathPrimitive(entryValue))]).join(',')}`;
+    }
+    const serialized = explode
+        ? entries.map(([key, entryValue]) => `${encodePathValue(key)}=${encodePathValue(serializePathPrimitive(entryValue))}`).join(style === 'label' ? '.' : ',')
+        : entries.flatMap(([key, entryValue]) => [encodePathValue(key), encodePathValue(serializePathPrimitive(entryValue))]).join(',');
+    return pathPrefix(name, style, true) + serialized;
+}
+function pathPrefix(name, style, _objectValue) {
+    if (style === 'label')
+        return '.';
+    if (style === 'matrix')
+        return `;${name}`;
+    return '';
+}
+function encodePathValue(value) {
+    return encodeURIComponent(value);
+}
+function serializePathPrimitive(value) {
+    if (value instanceof Date) {
+        return value.toISOString();
+    }
+    if (typeof value === 'object') {
+        return JSON.stringify(value);
+    }
+    return String(value);
+}
+function buildQueryString(parameters) {
+    const pairs = [];
+    for (const parameter of parameters) {
+        appendSerializedParameter(pairs, parameter);
+    }
+    return pairs.join('&');
+}
+function appendSerializedParameter(pairs, parameter) {
+    if (parameter.value === undefined || parameter.value === null) {
+        return;
+    }
+    if (parameter.contentType) {
+        pairs.push(`${encodeQueryComponent(parameter.name)}=${encodeQueryValue(JSON.stringify(parameter.value), parameter.allowReserved)}`);
+        return;
+    }
+    const style = parameter.style || 'form';
+    if (style === 'deepObject') {
+        appendDeepObjectParameter(pairs, parameter.name, parameter.value, parameter.allowReserved);
+        return;
+    }
+    if (Array.isArray(parameter.value)) {
+        appendArrayParameter(pairs, parameter.name, parameter.value, style, parameter.explode, parameter.allowReserved);
+        return;
+    }
+    if (typeof parameter.value === 'object') {
+        appendObjectParameter(pairs, parameter.name, parameter.value, style, parameter.explode, parameter.allowReserved);
+        return;
+    }
+    pairs.push(`${encodeQueryComponent(parameter.name)}=${encodeQueryValue(serializePrimitive(parameter.value), parameter.allowReserved)}`);
+}
+function appendArrayParameter(pairs, name, value, style, explode, allowReserved) {
+    const values = value
+        .filter((item) => item !== undefined && item !== null)
+        .map((item) => serializePrimitive(item));
+    if (values.length === 0) {
+        return;
+    }
+    if (style === 'form' && explode) {
+        for (const item of values) {
+            pairs.push(`${encodeQueryComponent(name)}=${encodeQueryValue(item, allowReserved)}`);
+        }
+        return;
+    }
+    pairs.push(`${encodeQueryComponent(name)}=${encodeQueryValue(values.join(','), allowReserved)}`);
+}
+function appendObjectParameter(pairs, name, value, style, explode, allowReserved) {
+    const entries = Object.entries(value).filter(([, entryValue]) => entryValue !== undefined && entryValue !== null);
+    if (entries.length === 0) {
+        return;
+    }
+    if (style === 'form' && explode) {
+        for (const [key, entryValue] of entries) {
+            pairs.push(`${encodeQueryComponent(key)}=${encodeQueryValue(serializePrimitive(entryValue), allowReserved)}`);
+        }
+        return;
+    }
+    const serialized = entries.flatMap(([key, entryValue]) => [key, serializePrimitive(entryValue)]).join(',');
+    pairs.push(`${encodeQueryComponent(name)}=${encodeQueryValue(serialized, allowReserved)}`);
+}
+function appendDeepObjectParameter(pairs, name, value, allowReserved) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) {
+        pairs.push(`${encodeQueryComponent(name)}=${encodeQueryValue(serializePrimitive(value), allowReserved)}`);
+        return;
+    }
+    for (const [key, entryValue] of Object.entries(value)) {
+        if (entryValue === undefined || entryValue === null) {
+            continue;
+        }
+        pairs.push(`${encodeQueryComponent(`${name}[${key}]`)}=${encodeQueryValue(serializePrimitive(entryValue), allowReserved)}`);
+    }
+}
+function serializePrimitive(value) {
+    if (value instanceof Date) {
+        return value.toISOString();
+    }
+    if (typeof value === 'object') {
+        return JSON.stringify(value);
+    }
+    return String(value);
+}
+function encodeQueryComponent(value) {
+    return encodeURIComponent(value);
+}
+function encodeQueryValue(value, allowReserved) {
+    const encoded = encodeURIComponent(value);
+    if (!allowReserved) {
+        return encoded;
+    }
+    return encoded.replace(/%3A/gi, ':')
+        .replace(/%2F/gi, '/')
+        .replace(/%3F/gi, '?')
+        .replace(/%23/gi, '#')
+        .replace(/%5B/gi, '[')
+        .replace(/%5D/gi, ']')
+        .replace(/%40/gi, '@')
+        .replace(/%21/gi, '!')
+        .replace(/%24/gi, '$')
+        .replace(/%26/gi, '&')
+        .replace(/%27/gi, "'")
+        .replace(/%28/gi, '(')
+        .replace(/%29/gi, ')')
+        .replace(/%2A/gi, '*')
+        .replace(/%2B/gi, '+')
+        .replace(/%2C/gi, ',')
+        .replace(/%3B/gi, ';')
+        .replace(/%3D/gi, '=');
+}
+//# sourceMappingURL=assets.js.map

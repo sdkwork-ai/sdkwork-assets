@@ -1,0 +1,1 @@
+{"version":3,"file":"asset-list-data.d.ts","sourceRoot":"","sources":["asset-list-data.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,cAAc,CAAC;AAC9C,OAAO,KAAK,EAAE,QAAQ,EAAE,MAAM,aAAa,CAAC;AAE5C,MAAM,WAAW,aAAa;IAC5B,KAAK,EAAE,SAAS,EAAE,CAAC;IACnB,QAAQ,EAAE,QAAQ,CAAC;CACpB"}

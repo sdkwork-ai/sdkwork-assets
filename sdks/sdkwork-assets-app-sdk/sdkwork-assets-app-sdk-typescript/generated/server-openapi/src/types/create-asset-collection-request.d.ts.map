@@ -1,0 +1,1 @@
+{"version":3,"file":"create-asset-collection-request.d.ts","sourceRoot":"","sources":["create-asset-collection-request.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,4BAA4B;IAC3C,KAAK,EAAE,MAAM,CAAC;IACd,WAAW,CAAC,EAAE,MAAM,CAAC;IACrB,cAAc,CAAC,EAAE,QAAQ,GAAG,OAAO,GAAG,QAAQ,CAAC;IAC/C,UAAU,CAAC,EAAE,SAAS,GAAG,cAAc,GAAG,QAAQ,CAAC;CACpD"}
