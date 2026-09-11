@@ -1,9 +1,13 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-assets-ingestion"
 version.workspace = true
 edition.workspace = true
 description = "Unified multi-artifact ingestion orchestration over sdkwork-drive (planning + execution traits)."
 
+
+[lints]
+workspace = true
 [dependencies]
 sdkwork-assets-contract.workspace = true
 serde.workspace = true

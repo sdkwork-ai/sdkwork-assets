@@ -1,9 +1,13 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-assets-contract"
 version.workspace = true
 edition.workspace = true
 description = "Canonical unified asset management contracts (MediaResource, artifact batches, provenance)."
 
+
+[lints]
+workspace = true
 [dependencies]
 serde.workspace = true
 serde_json.workspace = true

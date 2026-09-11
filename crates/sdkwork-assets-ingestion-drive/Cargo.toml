@@ -1,9 +1,13 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-assets-ingestion-drive"
 version.workspace = true
 edition.workspace = true
 description = "Drive uploader execution adapter for sdkwork-assets-ingestion import plans."
 
+
+[lints]
+workspace = true
 [dependencies]
 sdkwork-assets-ingestion.workspace = true
 sdkwork-drive-workspace-service = { workspace = true }

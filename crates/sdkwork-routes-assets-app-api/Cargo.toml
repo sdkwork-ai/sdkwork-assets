@@ -1,9 +1,13 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-routes-assets-app-api"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 
+
+[lints]
+workspace = true
 [lib]
 name = "sdkwork_routes_assets_app_api"
 path = "src/lib.rs"

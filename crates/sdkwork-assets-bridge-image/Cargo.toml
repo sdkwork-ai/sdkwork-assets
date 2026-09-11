@@ -1,9 +1,13 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-assets-bridge-image"
 version.workspace = true
 edition.workspace = true
 description = "Image modality bridge: GeneratedMediaOutput → MediaArtifactBatch and drive plan alignment."
 
+
+[lints]
+workspace = true
 [dependencies]
 sdkwork-assets-contract.workspace = true
 sdkwork-assets-ingestion.workspace = true

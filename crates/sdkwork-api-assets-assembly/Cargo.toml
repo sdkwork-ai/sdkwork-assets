@@ -1,10 +1,14 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-api-assets-assembly"
 edition.workspace = true
 license.workspace = true
 version.workspace = true
 description = "Generated API assembly for sdkwork-assets application HTTP plane."
 
+
+[lints]
+workspace = true
 [lib]
 name = "sdkwork_api_assets_assembly"
 path = "src/lib.rs"
