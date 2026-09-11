@@ -49,7 +49,6 @@ Thumbs.db
 sdks/**/package-lock.json
 
 # SDK generated/transpiled output (local regeneration product, not committed)
-sdks/**/generated/
 *.js.map
 *.d.ts.map
 # SDK facade transpiled output (build artifacts, not committed)
