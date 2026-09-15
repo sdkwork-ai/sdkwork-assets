@@ -2,8 +2,11 @@ import json
 import copy
 from pathlib import Path
 
-src = Path(r"E:\sdkwork-space\sdkwork-drive\apis\app-api\drive\drive-app-api.openapi.json")
-dst_dir = Path(r"E:\sdkwork-space\sdkwork-assets\apis\app-api\assets")
+# `<workspace-root>/sdkwork-assets/scripts/` -> parents[2] is the checkout root.
+WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
+
+src = WORKSPACE_ROOT / "sdkwork-drive/apis/app-api/drive/drive-app-api.openapi.json"
+dst_dir = WORKSPACE_ROOT / "sdkwork-assets/apis/app-api/assets"
 dst_dir.mkdir(parents=True, exist_ok=True)
 dst = dst_dir / "assets-app-api.openapi.json"
 
