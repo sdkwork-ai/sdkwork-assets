@@ -67,3 +67,5 @@ export {
   getAssetsEnvironment,
   getPlatformApiGatewayHttpUrl,
 } from '../iam/assetsEnvironment';
+
+export * from './uploadDeclaration';

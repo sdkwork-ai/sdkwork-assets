@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "appId": "sdkwork-assets-pc",
+  "declarations": [
+    {
+      "appResourceType": "asset.catalog_entry",
+      "appResourceIdKind": "application",
+      "scene": "catalog-upload",
+      "source": "sdkwork-assets-pc",
+      "uploadProfileCode": "attachment",
+      "retention": "long_term",
+      "purpose": "Asset file uploaded into the application asset catalog, where the uploaded node is registered as a catalog entry."
+    }
+  ]
+}

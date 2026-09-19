@@ -45,7 +45,7 @@ export function AssetCenterPage() {
     setUploading(true);
     setActionError(null);
     try {
-      await service.uploadAsset({ file, scene: 'app_upload', source: 'sdkwork-assets' });
+      await service.uploadAsset({ file });
       await queryClient.invalidateQueries({ queryKey: ['assets'] });
     } catch (error) {
       setActionError(error instanceof Error ? error.message : t('error'));

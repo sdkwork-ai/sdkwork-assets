@@ -1,10 +1,11 @@
 import { isBlank } from '@sdkwork/utils';
-import type {
-  AssetItem,
-  AssetListData,
-  AssetsAppClient,
-  DriveAppClient,
-  DriveUploaderProgress,
+import {
+  ASSETS_PC_CATALOG_ENTRY_UPLOAD,
+  type AssetItem,
+  type AssetListData,
+  type AssetsAppClient,
+  type DriveAppClient,
+  type DriveUploaderProgress,
 } from '@sdkwork/assets-pc-core';
 import { mapProblemDetailToMessage } from '@sdkwork/assets-pc-commons';
 
@@ -25,8 +26,6 @@ export interface ListAssetsQuery {
 
 export interface UploadAssetInput {
   file: File;
-  scene?: string;
-  source?: string;
   onProgress?: (progress: DriveUploaderProgress) => void;
 }
 
@@ -75,10 +74,10 @@ export class AssetCatalogService {
     try {
       const uploadResult = await this.clients.drive.uploader.uploadAttachment({
         file: input.file,
-        appResourceType: 'app_upload',
-        appResourceId: 'sdkwork-assets',
-        scene: input.scene ?? 'app_upload',
-        source: input.source ?? 'sdkwork-assets',
+        appResourceType: ASSETS_PC_CATALOG_ENTRY_UPLOAD.appResourceType,
+        appResourceId: ASSETS_PC_CATALOG_ENTRY_UPLOAD.source,
+        scene: ASSETS_PC_CATALOG_ENTRY_UPLOAD.scene,
+        source: ASSETS_PC_CATALOG_ENTRY_UPLOAD.source,
         onProgress: input.onProgress,
       });
 
