@@ -32,6 +32,7 @@
     "@sdkwork/assets-pc-i18n": "workspace:*",
     "@sdkwork/assets-pc-shell": "workspace:*",
     "@sdkwork/auth-pc-react": "workspace:*",
+    "@sdkwork/iam-credential-entry": "workspace:*",
     "@sdkwork/utils": "workspace:*",
     "@tanstack/react-query": "catalog:",
     "i18next": "catalog:",

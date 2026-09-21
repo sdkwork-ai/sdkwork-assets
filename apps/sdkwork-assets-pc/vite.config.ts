@@ -5,6 +5,7 @@ import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, loadEnv } from 'vite';
+import { createSdkworkCredentialEntryBootstrapVitePlugin } from '@sdkwork/iam-credential-entry/vite';
 import { browserSecurityHeadersPlugin } from './config/browser/securityHeaders';
 
 const DEFAULT_PLATFORM_API_GATEWAY_TARGET = 'http://127.0.0.1:3900';
@@ -13,6 +14,7 @@ export default defineConfig(({ mode }) => {
   const envDir = path.resolve(__dirname);
   const env = loadEnv(mode, envDir, '');
 
+  const bootstrapAccessToken = env.SDKWORK_ACCESS_TOKEN ?? process.env.SDKWORK_ACCESS_TOKEN;
   if (mode === 'production') {
     const devEmail = env.VITE_SDKWORK_ASSETS_AUTH_DEV_EMAIL;
     const devPassword = env.VITE_SDKWORK_ASSETS_AUTH_DEV_PASSWORD;
@@ -70,7 +72,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     define: {
-      'process.env.SDKWORK_ACCESS_TOKEN': JSON.stringify(env.SDKWORK_ACCESS_TOKEN ?? ''),
+
       __SDKWORK_ASSETS_ENV__: JSON.stringify({
         ...env,
         MODE: mode,
@@ -78,7 +80,18 @@ export default defineConfig(({ mode }) => {
       }),
     },
     envDir,
-    plugins: [react(), tailwindcss(), browserSecurityHeadersPlugin(mode === 'development')],
+    plugins: [
+      // The bootstrap credential reaches the renderer only through the shared IAM
+      // plugin (dev-server HTML injection as
+      // `globalThis.__SDKWORK_CREDENTIAL_ENTRY_BOOTSTRAP_ACCESS_TOKEN__`).
+      // `define['process.env.SDKWORK_ACCESS_TOKEN']` is NOT a valid handoff
+      // (IAM_CREDENTIAL_ENTRY_SPEC.md section 4/5).
+      createSdkworkCredentialEntryBootstrapVitePlugin({
+        accessToken: bootstrapAccessToken,
+        environment: resolveViteEnvironment(mode, process.env),
+      }),
+      react(), tailwindcss(), browserSecurityHeadersPlugin(mode === 'development'),
+    ],
     build: {
       outDir: resolveBrowserDistOutDir(resolveViteEnvironment(mode, process.env)),
       rollupOptions: {
