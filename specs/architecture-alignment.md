@@ -27,7 +27,7 @@ Last reviewed: 2026-07-05
 | `sdkwork-web-framework` | N/A | No owned platform HTTP APIs — `EX-2026-ASSETS-001` |
 | `sdkwork-database` | N/A | No owned relational persistence — `EX-2026-ASSETS-002` |
 | `sdkwork-discovery` | N/A | No RPC services — `EX-2026-ASSETS-003` |
-| Release / CI | Aligned | `sdkwork.workflow.json`, `.github/workflows/package.yml` |
+| Release / CI | Aligned | `agent.workflow.json`, `.github/workflows/package.yml` |
 | Verification | Aligned | `pnpm verify`, architecture + structure tests |
 
 ## Framework integration

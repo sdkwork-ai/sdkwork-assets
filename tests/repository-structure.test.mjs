@@ -34,7 +34,7 @@ test('repository root documents unified asset platform layout', () => {
   assert.match(readme, /Unified Asset Management/);
   readUtf8('Cargo.toml');
   readUtf8('specs/component.spec.json');
-  readUtf8('sdkwork.workflow.json');
+  readUtf8('agent.workflow.json');
   readUtf8('.github/workflows/package.yml');
   readUtf8('apps/sdkwork-assets-common/packages/sdkwork-assets-core/package.json');
 });

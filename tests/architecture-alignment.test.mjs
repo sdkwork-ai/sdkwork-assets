@@ -98,7 +98,7 @@ test('auth gate uses iam session bootstrap', () => {
 });
 
 test('release workflow is configured', () => {
-  readUtf8('sdkwork.workflow.json');
+  readUtf8('agent.workflow.json');
   readUtf8('.github/workflows/package.yml');
 });
 

@@ -84,5 +84,5 @@ Asset list and picker UIs share `useAssetsListInfiniteQuery` (cursor pagination,
 
 - `deploymentProfile`: `standalone` or `cloud`
 - Topology contract: `specs/topology.spec.json`
-- Release workflow: `sdkwork.workflow.json` + `.github/workflows/package.yml`
+- Release workflow: `agent.workflow.json` + `.github/workflows/package.yml`
 - Browser static assets served behind platform API gateway
