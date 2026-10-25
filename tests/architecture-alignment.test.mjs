@@ -137,7 +137,7 @@ test('shell lazy-loads product ui modules', () => {
 
 test('application roots live under apps/ per workspace spec', () => {
   readUtf8('apps/README.md');
-  readUtf8('apps/sdkwork-assets-pc/sdkwork.app.config.json');
+  readUtf8('apps/sdkwork-assets-pc/agent.app.config.json');
   assert.equal(
     fs.existsSync(path.join(repoRoot, 'apps/sdkwork-assets-pc/packages/sdkwork-assets-pc-core')),
     true,

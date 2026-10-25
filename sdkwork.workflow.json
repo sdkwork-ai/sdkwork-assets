@@ -6,7 +6,7 @@
     "name": "SDKWork Assets",
     "repository": "sdkwork-ai/sdkwork-assets",
     "sourcePath": ".",
-    "configPath": "apps/sdkwork-assets-pc/sdkwork.app.config.json"
+    "configPath": "apps/sdkwork-assets-pc/agent.app.config.json"
   },
   "release": {
     "artifactPrefix": "sdkwork-assets",

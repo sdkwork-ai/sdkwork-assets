@@ -18,7 +18,7 @@ Canonical SDKWORK specs path from this root:
 
 ## Application Identity
 
-Read `apps/sdkwork-assets-pc/sdkwork.app.config.json` before changing application behavior, runtime config, SDK wiring, release metadata, or app-owned capabilities.
+Read `apps/sdkwork-assets-pc/agent.app.config.json` before changing application behavior, runtime config, SDK wiring, release metadata, or app-owned capabilities.
 
 ## Local Dictionary Structure
 

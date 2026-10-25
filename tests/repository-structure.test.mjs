@@ -47,7 +47,7 @@ test('workspace links assets and drive app sdks', () => {
 });
 
 test('pc react app root exists with component spec', () => {
-  readUtf8('apps/sdkwork-assets-pc/sdkwork.app.config.json');
+  readUtf8('apps/sdkwork-assets-pc/agent.app.config.json');
   const manifest = JSON.parse(readUtf8('apps/sdkwork-assets-pc/specs/component.spec.json'));
   assert.equal(manifest.component.domain, 'content');
   assert.equal(manifest.component.capability, 'assets');

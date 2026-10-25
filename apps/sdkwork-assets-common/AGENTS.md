@@ -16,7 +16,7 @@ Canonical SDKWORK specs path from this application root:
 
 ## Application Identity
 
-This root is `sdkwork-assets-common`: a shared, non-runnable package root for SDKWork Assets. It does not own `sdkwork.app.config.json`; runnable app identity lives in `../sdkwork-assets-pc/sdkwork.app.config.json`.
+This root is `sdkwork-assets-common`: a shared, non-runnable package root for SDKWork Assets. It does not own `agent.app.config.json`; runnable app identity lives in `../sdkwork-assets-pc/agent.app.config.json`.
 
 ## Local Dictionary Structure
 
