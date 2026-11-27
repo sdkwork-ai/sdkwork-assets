@@ -12,6 +12,11 @@
       "language": "typescript",
       "packageName": "sdkwork-assets-app-sdk-generated-typescript",
       "generatedOutput": "sdkwork-assets-app-sdk-typescript/generated/server-openapi"
+    },
+    "rust": {
+      "language": "rust",
+      "packageName": "sdkwork-assets-app-sdk-generated-rust",
+      "generatedOutput": "sdkwork-assets-app-sdk-rust/generated/server-openapi"
     }
   },
   "sdkDependencies": [
